@@ -2,7 +2,7 @@
 #include "global.h"
 #include "base.h"
 #include "two_sum.h"
-
+#include <string.h>
 using namespace std;
 
 enum QUESTIONS {TWO_SUM,

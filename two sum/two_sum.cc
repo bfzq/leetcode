@@ -2,6 +2,8 @@
 #include <iostream>
 #include <unordered_map>
 #include "global.h"
+#include <string.h>
+
 using namespace std;
 
 // typedef unordered_map<int, int> val_idx_mapping;
@@ -20,7 +22,7 @@ Twosum::twoSum(nums_vector& nums, int target)
      }
      val_idx[target - val] = i;
    }
-   return {0,0};
+   return {};
 }
 
 /*

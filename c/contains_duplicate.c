@@ -74,9 +74,28 @@ bool contains_duplicate2(int *nums, int numsSize)
   }
   return false;
 }
+
+// hash
+bool contains_duplicate3(int *nums, int numsSize)
+{
+  return true;
+}
+
+void test1(bool(*func)(int*, int))
+{
+  int nums[] = {1, 2, 3, 1};
+  printf("%d\n", func(nums, 4));
+}
+
+void test2(bool(*func)(int*, int))
+{
+  int nums[] = {1, 2, 3};
+  printf("%d\n", func(nums, 3));
+}
+
 int main()
 {
-  int nums1[] = {1,2,3,1};
-  printf("%d", contains_duplicate2(nums1, 4));
+  test1(contains_duplicate);
+  test2(contains_duplicate);
   return 0;
 }

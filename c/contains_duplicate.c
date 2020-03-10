@@ -86,8 +86,10 @@ bool contains_duplicate3(int *nums, int numsSize)
   bool ret = false;
   for (int i = 0; i < numsSize; i++)
   {
-    idx = *(nums + i) % numsSize;
-    if (idx < 0) idx *= -1;
+    if (*(nums + i) < 0)
+      idx = ((*(nums + i) * -1) + numsSize / 2) % numsSize;
+    else
+      idx = *(nums + i) % numsSize;
     if (tbl[idx] == NULL)
       tbl[idx] = &(nums[i]);
     else if (*(tbl[idx]) == nums[i])

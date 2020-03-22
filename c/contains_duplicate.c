@@ -121,38 +121,44 @@ bool contains_duplicate3(int *nums, int numsSize)
 
 void test1(bool(*func)(int*, int))
 {
+  printf("test1: ");
   int nums[] = {1, 2, 3, 1};
-  printf("test1: %d\n", func(nums, 4));
+  printf("%d\n", func(nums, 4));
 }
 
 void test2(bool(*func)(int*, int))
 {
+  printf("test2: ");
   int nums[] = {1, 2, 3};
-  printf("test2: %d\n", func(nums, 3));
+  printf("%d\n", func(nums, 3));
 }
 
 void test3(bool(*func)(int*, int))
 {
+  printf("test3: ");
   int nums[] = {3, 1};
-  printf("test3: %d\n", func(nums, 2));
+  printf("%d\n", func(nums, 2));
 }
 
 void test4(bool(*func)(int*, int))
 {
+  printf("test4: ");
   int nums[] = {1, 5, -2, -4, 0};
-  printf("test4: %d\n", func(nums, 5));
+  printf("%d\n", func(nums, 5));
 }
 
 void test5(bool(*func)(int*, int))
 {
+  printf("test5: ");
   int nums[] = {2, 14, 18, 22, 22};
-  printf("test5: %d\n", func(nums, 5));
+  printf("%d\n", func(nums, 5));
 }
 
 void test6(bool(*func)(int*, int))
 {
+  printf("test6: ");
   int nums[] = {-1200000005,-1200000005};
-  printf("test6: %d\n", func(nums, 2));
+  printf("%d\n", func(nums, 2));
 }
 
 
@@ -161,11 +167,11 @@ int main()
 {
   /* test1(contains_duplicate); */
   /* test2(contains_duplicate); */
-  test1(contains_duplicate3);
-  test2(contains_duplicate3);
-  test3(contains_duplicate3);
-  test4(contains_duplicate3);
-  test5(contains_duplicate3);
-  test6(contains_duplicate3);
+  test1(contains_duplicate2);
+  test2(contains_duplicate2);
+  test3(contains_duplicate2);
+  test4(contains_duplicate2);
+  test5(contains_duplicate2);
+  test6(contains_duplicate2);
   return 0;
 }

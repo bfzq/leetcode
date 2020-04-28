@@ -37,3 +37,6 @@ bld
 *dSYM
 *~
 *.class
+GPATH
+GRTAGS
+GTAGS

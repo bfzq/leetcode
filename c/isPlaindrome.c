@@ -3,7 +3,17 @@
 
 bool isPalindrome(int x)
 {
-  return false;
+  if (x < 0) return false;
+  int x2 = x;
+  long x3 = 0;
+  do
+  {
+    x3 *= 10;
+    x3 += x2 % 10;
+    if ((int)x3 != x3) return false;
+    x2 /= 10;
+  } while (x2 != 0);
+  return x == x3 ? true : false;
 }
 
 

@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include <stdlib.h>
 // timeout
 int largestRectangleArea(int* heights, int heightsSize)
 {
@@ -35,6 +35,26 @@ int largestRectangleArea(int* heights, int heightsSize)
     if (tmp > max) max = tmp;
   }
   return max;
+}
+
+// 单调栈
+int largestRectangleArea2(int *heights, int heightsSize)
+{
+  int area = 0, idx = 0;
+  int *stack = (int*)malloc(heightsSize + 2);
+  
+  stack[0] = 0;
+  stack[heightsSize + 1] = 0;
+  
+  for (int i = 1; i < heightsSize; i++)
+  {
+    while (idx >= 1 && stack[idx] < heights[i])
+    {
+      
+    }
+    stack[++idx] = heights[i];
+  }
+  return area;
 }
 
 void test(int *h, int hs)

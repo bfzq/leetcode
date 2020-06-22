@@ -98,17 +98,17 @@ void test(int *h, int hs)
 
 int main()
 {
-  int t1[] = {2,1,5,6,2,3};
-  test(t1, sizeof(t1) / sizeof(int));
-  int t2[] = {0};
-  test(t2, sizeof(t2) / sizeof(int));
-  int t3[] = {2,1,2};
-  test(t3, sizeof(t3) / sizeof(int));
-  int t4[] = {2,3,1,1,1};
-  test(t4, sizeof(t4) / sizeof(int));
-  int t5[] = {};
-  test(t5, sizeof(t5) / sizeof(int));
-  int t6[] = {4,2,0,3,2,5};
+  // int t1[] = {2,1,5,6,2,3};
+  // test(t1, sizeof(t1) / sizeof(int));
+  // int t2[] = {0};
+  // test(t2, sizeof(t2) / sizeof(int));
+  // int t3[] = {2,1,2};
+  // test(t3, sizeof(t3) / sizeof(int));
+  // int t4[] = {2,3,1,1,1};
+  // test(t4, sizeof(t4) / sizeof(int));
+  // int t5[] = {};
+  // test(t5, sizeof(t5) / sizeof(int));
+  int t6[] = {0,3,3,2,5};
   test(t6, sizeof(t6) / sizeof(int));
   return 0;
 }

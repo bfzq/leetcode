@@ -87,8 +87,7 @@ int largestRectangleArea2(int *heights, int heightsSize)
     stack[++idx] = i;
   }
   free(stack);
-  return area;
-  
+  return area;  
 }
 
 void test(int *h, int hs)

@@ -4,32 +4,22 @@
 double findMedianSortedArrays(int* nums1, int nums1Size,
                               int* nums2, int nums2Size)
 {
-  bool is_even = false;
-  if ((nums1Size + nums2Size) % 2 == 0) is_even = true;
-
   int left_median_element_num = (nums1Size + nums2Size + 1) / 2;
-  /* if (nums1Size == 0 && nums2Size == 0) */
-  /* { */
-  /*   return 0; */
-  /* } */
-  /* else if (nums1Size == 0) */
-  /* { */
-  /*   if () */
-  /* } */
-  /* else if (nums2Size == 0) */
-  /* { */
-  /*   return 2; */
-  /* } */
+
   int left_element_num1 = 0, left_element_num2 = 0;
   int mid = 0;
   while (left_element_num1 + left_element_num2 != left_median_element_num)
   {
-    if (nums1[left_element_num1] <= nums2[left_element_num2])
+    if (nums2Size == 0 || nums2Size == left_element_num2 ||
+        (nums1Size != 0 && left_element_num1 <  nums1Size &&
+         left_element_num2 < nums2Size &&
+         nums1[left_element_num1] <= nums2[left_element_num2]))
     {
       mid = (left_element_num1 + nums1Size) / 2;
-      while (mid + left_element_num2 >
+      while (mid + left_element_num2 + 1>
              left_median_element_num ||
-             nums1[mid] > nums2[left_element_num2])
+             (nums2Size != 0 && left_element_num2 < nums2Size
+              && nums1[mid] > nums2[left_element_num2]))
       {
         mid = (left_element_num1 + mid) / 2;
       }
@@ -38,9 +28,10 @@ double findMedianSortedArrays(int* nums1, int nums1Size,
     else
     {
       mid = (left_element_num2 + nums2Size) / 2;
-      while (mid + left_element_num1 >
-             left_median_element_num ||
-             nums2[mid] > nums1[left_element_num1])
+      while (mid + left_element_num1 + 1>
+             left_median_element_num || 
+             (nums1Size != 0 && nums1Size > left_element_num1 &&
+              nums2[mid] > nums1[left_element_num1]))
       {
         mid = (left_element_num2 + mid) / 2;
       }
@@ -63,7 +54,7 @@ double findMedianSortedArrays(int* nums1, int nums1Size,
       nums1[left_element_num1 - 1] : nums2[left_element_num2 - 1];
   }
 
-  if (is_even == true)
+  if ((nums1Size + nums2Size) % 2 == 0)
   {
     double right_value = 0;
     if (left_element_num1 == nums1Size)

@@ -16,16 +16,16 @@ TEST(test, max)
 
 TEST(leetcode, findMedianSortedArrays)
 {
-  // int nums1[] = {};
-  // int nums2[] = {2};
-  // EXPECT_EQ(2.0,
-  //           findMedianSortedArrays(nums1, sizeof(nums1) / sizeof(int),
-  //                                  nums2, sizeof(nums2) / sizeof(int)));
-  // int nums3[] = {3};
-  // int nums4[] = {};
-  // EXPECT_EQ(3.0,
-  //           findMedianSortedArrays(nums3, sizeof(nums3) / sizeof(int),
-  //                                  nums4, sizeof(nums4) / sizeof(int)));
+  int nums1[] = {};
+  int nums2[] = {2};
+  EXPECT_EQ(2.0,
+            findMedianSortedArrays(nums1, sizeof(nums1) / sizeof(int),
+                                   nums2, sizeof(nums2) / sizeof(int)));
+  int nums3[] = {3};
+  int nums4[] = {};
+  EXPECT_EQ(3.0,
+            findMedianSortedArrays(nums3, sizeof(nums3) / sizeof(int),
+                                   nums4, sizeof(nums4) / sizeof(int)));
 
   int nums5[] = {};
   int nums6[] = {};
@@ -51,11 +51,11 @@ TEST(leetcode, findMedianSortedArrays)
             findMedianSortedArrays(nums11, sizeof(nums11) / sizeof(int),
                                    nums12, sizeof(nums12) / sizeof(int)));
 
-  // int nums13[] = {1, 3, 6 , 10};
-  // int nums14[] = {};
-  // EXPECT_EQ(4.5,
-  //           findMedianSortedArrays(nums13, sizeof(nums13) / sizeof(int),
-  //                                  nums14, sizeof(nums14) / sizeof(int)));
+  int nums13[] = {1, 3, 6 , 10};
+  int nums14[] = {};
+  EXPECT_EQ(4.5,
+            findMedianSortedArrays(nums13, sizeof(nums13) / sizeof(int),
+                                   nums14, sizeof(nums14) / sizeof(int)));
 
   int nums15[] = {2};
   int nums16[] = {1};
@@ -63,6 +63,23 @@ TEST(leetcode, findMedianSortedArrays)
             findMedianSortedArrays(nums15, sizeof(nums15) / sizeof(int),
                                    nums16, sizeof(nums16) / sizeof(int)));
 
+  int nums17[] = {2, 2, 2};
+  int nums18[] = {2, 2, 2, 2};
+  EXPECT_EQ(2,
+            findMedianSortedArrays(nums17, sizeof(nums17) / sizeof(int),
+                                   nums18, sizeof(nums18) / sizeof(int)));
+
+  int nums19[] = {2, 2, 2, 2, 2};
+  int nums20[] = {2, 2, 2, 2};
+  EXPECT_EQ(2,
+            findMedianSortedArrays(nums19, sizeof(nums19) / sizeof(int),
+                                   nums20, sizeof(nums20) / sizeof(int)));
+
+  int nums21[] = {2, 3};
+  int nums22[] = {1};
+  EXPECT_EQ(2,
+            findMedianSortedArrays(nums21, sizeof(nums21) / sizeof(int),
+                                   nums22, sizeof(nums22) / sizeof(int)));
 }
 
 int main(int argc, char **argv)

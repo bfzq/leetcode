@@ -4,10 +4,11 @@ double findMedianSortedArrays(int* nums1, int nums1Size,
 {
   int left_total_element_num = (nums1Size + nums2Size + 1) / 2;
   int left_element_num1 = 0, left_element_num2 = 0;
-  while (left_element_num1 + left_element_num2 < left_total_element_num)
+  while (left_element_num1 + left_element_num2 != left_total_element_num)
   {
     
   }
+  if ()
   return 0;
 }
 

@@ -1,5 +1,8 @@
 #include <gtest/gtest.h>
 #include "findmediansortedarrays.h"
+#include "ismatch.h"
+
+
 
 // g++ -std=c++11 -g test.cc -o test -I/usr/local/include -L/usr/local/lib -lgtest
 
@@ -80,6 +83,15 @@ TEST(leetcode, findMedianSortedArrays)
   EXPECT_EQ(2,
             findMedianSortedArrays(nums21, sizeof(nums21) / sizeof(int),
                                    nums22, sizeof(nums22) / sizeof(int)));
+}
+
+TEST(leetcode, isMatch)
+{
+  EXPECT_EQ(false, "aa", "a");
+  EXPECT_EQ(true, "aa", "a*");
+  EXPECT_EQ(true, "ab", ".*");
+  EXPECT_EQ(true, "aab", "c*a*b");
+  EXPECT_EQ(false, "mississippi", "mis*is*p*");
 }
 
 int main(int argc, char **argv)

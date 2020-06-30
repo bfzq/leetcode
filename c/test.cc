@@ -87,11 +87,12 @@ TEST(leetcode, findMedianSortedArrays)
 
 TEST(leetcode, isMatch)
 {
-  EXPECT_EQ(false, "aa", "a");
-  EXPECT_EQ(true, "aa", "a*");
-  EXPECT_EQ(true, "ab", ".*");
-  EXPECT_EQ(true, "aab", "c*a*b");
-  EXPECT_EQ(false, "mississippi", "mis*is*p*");
+  EXPECT_EQ(false, isMatch("aa", "a"));
+  EXPECT_EQ(true, isMatch("aa", "a*"));
+  EXPECT_EQ(true, isMatch("ab", ".*"));
+  EXPECT_EQ(true, isMatch("aab", "c*a*b"));
+  EXPECT_EQ(false, isMatch("mississippi", "mis*is*p*"));
+  EXPECT_EQ(true, isMatch("", ""));
 }
 
 int main(int argc, char **argv)

@@ -12,7 +12,8 @@ class Solution
  public:
   int maxArea(vector<int>& height)
   {
-    return bruteForce(height);
+    // return bruteForce(height);
+    return twoPointers(height);
   }
 
   int romanToInt(string s)
@@ -35,12 +36,18 @@ class Solution
   }
 
  private:
+  int min(int a, int b)
+  {
+    return a < b ? a : b;
+  }
+
   int max(int a, int b)
   {
     return a < b ? b : a;
   }
 
-  // ok
+  /* for maxArea*/
+  // brute force is time out
   int bruteForce(vector<int> &height)
   {
     int max_area = 0;
@@ -54,6 +61,23 @@ class Solution
         int tmp = (hi < hj) ? hi * wide : hj * wide;
         max_area = max(tmp, max_area);
       }
+    }
+    return max_area;
+  }
+
+  // two pointers, passed
+  int twoPointers(vector<int> &height)
+  {
+    unsigned left = 0;
+    unsigned right = height.size() - 1;
+    int max_area = 0;
+    while (left != right)
+    {
+      unsigned left_height = height[left];
+      unsigned right_height = height[right];
+      int tmp = min(left_height, right_height) * (right - left);
+      max_area = max(max_area, tmp);
+      left_height < right_height ? left++ : right--;
     }
     return max_area;
   }

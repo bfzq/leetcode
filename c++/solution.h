@@ -64,13 +64,43 @@ class Solution
         }
         ret.insert(0, getRoman(5 * t));
       }
-      t *= 10;;
+      t *= 10;
       num /= 10;
     }
     return ret;
   }
-
+  /*  14. Longest Common Prefix */
+  string longestCommonPrefix(vector<string>& strs)
+  {
+    return longestCommonPrefix1(strs);
+  }
  private:
+  /* for longestCommonPrefix
+     brute force
+   */
+  string longestCommonPrefix1(vector<string> &strs)
+  {
+    if (strs.empty() == true)
+      return "";
+    if (strs[0].empty())
+      return "";
+    string ret;
+    for (int i = 0; i < strs[0].length(); i++)
+    {
+      ret.push_back(strs[0][i]);
+      for (int j = 1; j < strs.size(); j++)
+      {
+        if (!(i < strs[j].length() &&
+              strs[j][i] == ret[i]))
+        {
+          ret.erase(ret.end() - 1);
+          goto ret_label;
+        }
+      }
+    }
+  ret_label:
+    return ret;
+  }
   int min(int a, int b)
   {
     return a < b ? a : b;

@@ -35,6 +35,41 @@ class Solution
     return tmp;
   }
 
+  string intToRoman(int num)
+  {
+    string ret;
+    int n = 0;
+    int t = 1;
+    while (num != 0)
+    {
+      n = num % 10;
+      if (n == 4 || n == 9)
+      {
+        ret.insert(0, getRoman((n + 1) * t));
+        ret.insert(0, getRoman(t));
+      }
+      else if (n < 4)
+      {
+        for (int i = 0; i < n; i++)
+        {
+          ret.insert(0, getRoman(t));
+        }
+      }
+      else
+      {
+        // n >= 5
+        for (int i = 0; i < n - 5; i++)
+        {
+          ret.insert(0, getRoman(t));
+        }
+        ret.insert(0, getRoman(5 * t));
+      }
+      t *= 10;;
+      num /= 10;
+    }
+    return ret;
+  }
+
  private:
   int min(int a, int b)
   {
@@ -44,6 +79,49 @@ class Solution
   int max(int a, int b)
   {
     return a < b ? b : a;
+  }
+
+  /*  for romanToInt */
+  int getInt(char roman)
+  {
+    switch (roman)
+    {
+    case 'I':
+      return 1;
+    case 'V':
+      return 5;
+    case 'X':
+      return 10;
+    case 'L':
+      return 50;
+    case 'C':
+      return 100;
+    case 'D':
+      return 500;
+    default:
+      return 1000;
+    }
+  }
+
+  string getRoman(int num)
+  {
+    switch (num)
+    {
+    case 1:
+      return "I";
+    case 5:
+      return "V";
+    case 10:
+      return "X";
+    case 50:
+      return "L";
+    case 100:
+      return "C";
+    case 500:
+      return "D";
+    default:
+      return "M";
+    }
   }
 
   /* for maxArea*/
@@ -82,26 +160,6 @@ class Solution
     return max_area;
   }
 
-  int getInt(char roman)
-  {
-    switch (roman)
-    {
-    case 'I':
-      return 1;
-    case 'V':
-      return 5;
-    case 'X':
-      return 10;
-    case 'L':
-      return 50;
-    case 'C':
-      return 100;
-    case 'D':
-      return 500;
-    default:
-      return 1000;
-    }
-  }
 
 };
 

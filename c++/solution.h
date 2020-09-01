@@ -74,7 +74,16 @@ class Solution
   {
     return longestCommonPrefix1(strs);
   }
+
+  vector<vector<int>> threeSum(vector<int> &nums)
+  {
+    return threeSum0(nums);
+  }
  private:
+  vector<vector<int>> threeSum0(vector<int> &nums)
+  {
+    return vector<vector<int> >();
+  }
   /* for longestCommonPrefix
      brute force
    */

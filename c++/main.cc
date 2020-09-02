@@ -65,6 +65,14 @@ TEST(LEETCODE, LongestCommonPrefix4)
   EXPECT_EQ("", s.longestCommonPrefix(input));
 }
 
+TEST(LEETCODE, threeSum0)
+{
+  vector<int> input = {-1, 0, 1, 2, -1, -4};
+  vector<vector<int>> result = {{-1, 0, 1}, {-1, -1, 2}};
+  Solution s;
+  EXPECT_EQ(result, s.threeSum(input));
+}
+
 int main(int argc, char **argv)
 {
   ::testing::InitGoogleTest(&argc, argv);

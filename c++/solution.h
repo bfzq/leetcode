@@ -38,7 +38,37 @@ class Solution
  private:
   vector<vector<int>> threeSum0(vector<int> &nums)
   {
-    return vector<vector<int> >();
+    // std::sort(nums.begin(), nums.end());
+    vector<vector<int>> ret;
+    for (int i = 0; i < nums.size() - 2; i++)
+    {
+      // if (i != 0 && nums[i] == nums[i - 1]) continue;
+      for (int j = i + 1; j < nums.size() - 1; j++)
+      {
+        for (int z = j + 1; z < nums.size(); z++)
+        {
+          if (nums[i] + nums[j] + nums[z] == 0)
+          {
+            if (ret.empty() == true)
+              ret.push_back({nums[i], nums[j], nums[z]});
+            else
+              for (int x = 0; x < ret.size(); x++)
+              {
+                for (int x2 = 0; x2 < 3; x2++)
+                {
+                  if (nums[i] != ret[x][x2] || nums[j] != ret[x][x2] ||
+                      nums[z] != ret[x][x2])
+                  {
+                    ret.push_back({nums[i], nums[j], nums[z]});
+                    break;
+                  }
+                }
+              }
+          }
+        }
+      }
+    }
+    return ret;
   }
   /*  passed */
   int romanToInt1(string s)

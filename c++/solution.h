@@ -18,6 +18,31 @@ class Solution
 
   int romanToInt(string s)
   {
+    return romanToInt1(s);
+  }
+
+  string intToRoman(int num)
+  {
+    return intToRoman1(num);
+  }
+  /*  14. Longest Common Prefix */
+  string longestCommonPrefix(vector<string>& strs)
+  {
+    return longestCommonPrefix1(strs);
+  }
+
+  vector<vector<int>> threeSum(vector<int> &nums)
+  {
+    return threeSum0(nums);
+  }
+ private:
+  vector<vector<int>> threeSum0(vector<int> &nums)
+  {
+    return vector<vector<int> >();
+  }
+  /*  passed */
+  int romanToInt1(string s)
+  {
     if (s.empty()) return 0;
     int tmp = 0;
     for (int i = 0; i < s.size(); i++)
@@ -35,7 +60,8 @@ class Solution
     return tmp;
   }
 
-  string intToRoman(int num)
+  /* passed */
+  string intToRoman1(int num)
   {
     string ret;
     int n = 0;
@@ -69,23 +95,9 @@ class Solution
     }
     return ret;
   }
-  /*  14. Longest Common Prefix */
-  string longestCommonPrefix(vector<string>& strs)
-  {
-    return longestCommonPrefix1(strs);
-  }
-
-  vector<vector<int>> threeSum(vector<int> &nums)
-  {
-    return threeSum0(nums);
-  }
- private:
-  vector<vector<int>> threeSum0(vector<int> &nums)
-  {
-    return vector<vector<int> >();
-  }
   /* for longestCommonPrefix
      brute force
+     passed
    */
   string longestCommonPrefix1(vector<string> &strs)
   {

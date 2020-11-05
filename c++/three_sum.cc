@@ -11,11 +11,13 @@ class Solution {
     std::sort(nums.begin(), nums.end());
     for (int i = 0; i < nums.size(); i++)
     {
+      if (nums[i] > 0) break;
       while (i < nums.size() && i > 0 && nums[i] == nums[i - 1])
         i++;
 
       for (int j = i + 1; j < nums.size(); j++)
       {
+        if (nums[i] + nums[j] > 0) break;
         while (j < nums.size() && j > i + 1 && nums[j] == nums[j - 1])
           j++;
 
@@ -39,13 +41,60 @@ class Solution {
     }
     return ret;
   }
+
+  vector<vector<int>> threeSum2(vector<int>& nums) {
+    vector<vector<int>> ret;
+    std::sort(nums.begin(), nums.end());
+    for (int i = 0; i < nums.size(); i++)
+    {
+      if (nums[i] > 0) break;
+      while (i < nums.size() && i > 0 && nums[i] == nums[i - 1])
+        i++;
+      for (int j = i + 1; j < nums.size(); j++)
+      {
+        if (nums[i] + nums[j] > 0) break;
+        while (j < nums.size() && j > i + 1 && nums[j] == nums[j - 1])
+          j++;
+        if (j >= nums.size()) break;
+
+        int a = j + 1;
+        int b = nums.size() - 1;
+        int m = 0;
+        int value = 0 - (nums[i] + nums[j]);
+        while (a <= b)
+        {
+          // m = (a  + b + 1) / 2;
+          m = a + (b - a) / 2;
+          if (nums[m] < value)
+          {
+            a = m + 1;
+          }
+          else if (nums[m] > value)
+          {
+            b = m - 1;
+          }
+          else
+          {
+            vector<int> r;
+            r.push_back(nums[i]);
+            r.push_back(nums[j]);
+            r.push_back(nums[m]);
+            ret.push_back(r);
+            break;
+          }
+        }
+      }
+    }
+    return ret;
+  }
 };
 
 int main()
 {
   Solution sum;
+  // vector<int> in = {-1,0,-1,2,1,-4};
   vector<int> in = {0,0,0,0};
-  sum.threeSum(in);
+  sum.threeSum2(in);
   return 0;
 }
 

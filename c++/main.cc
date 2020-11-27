@@ -2,6 +2,15 @@
 #include "solution.h"
 #include <iostream>
 
+
+// TEST(LEETCODE, threeSumClosest1)
+// {
+//   Solution s;
+//   vector<int> input = {-1, 2, 1, -4};
+//   int target = 1;
+//   EXPECT_EQ(2, s.threeSumClosest1(input, target));
+// }
+
 TEST(LEETCODE, maxArea)
 {
   Solution s;
@@ -65,12 +74,24 @@ TEST(LEETCODE, LongestCommonPrefix4)
   EXPECT_EQ("", s.longestCommonPrefix(input));
 }
 
-TEST(LEETCODE, threeSum0)
+// TEST(LEETCODE, threeSum)
+// {
+//   vector<int> input = {-1, 0, 1, 2, -1, -4};
+//   vector<vector<int>> result = {{-1, 0, 1}, {-1, -1, 2}};
+//   Solution s;
+//   EXPECT_EQ(result, s.threeSum(input));
+// }
+
+TEST(LEETCODE, maximum1)
 {
-  vector<int> input = {-1, 0, 1, 2, -1, -4};
-  vector<vector<int>> result = {{-1, 0, 1}, {-1, -1, 2}};
   Solution s;
-  EXPECT_EQ(result, s.threeSum(input));
+  EXPECT_EQ(2, s.maximum1(1, 2));
+}
+
+TEST(LEETCODE, maximum2)
+{
+  Solution s;
+  EXPECT_EQ(2147483647, s.maximum1(2147483647, -2147483648));
 }
 
 int main(int argc, char **argv)

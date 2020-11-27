@@ -31,6 +31,15 @@ class Solution
     return longestCommonPrefix1(strs);
   }
 
+  /**
+     Given an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.
+
+     Notice that the solution set must not contain duplicate triplets.
+
+     来源：力扣（LeetCode）
+     链接：https://leetcode-cn.com/problems/3sum
+     著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+  */
   vector<vector<int>> threeSum(vector<int> &nums)
   {
     return threeSum0(nums);
@@ -38,32 +47,44 @@ class Solution
  private:
   vector<vector<int>> threeSum0(vector<int> &nums)
   {
-    // std::sort(nums.begin(), nums.end());
     vector<vector<int>> ret;
-    for (int i = 0; i < nums.size() - 2; i++)
+    std::sort(nums.begin(), nums.end());
+    for (int i = 0; i < nums.size(); i++)
     {
-      // if (i != 0 && nums[i] == nums[i - 1]) continue;
-      for (int j = i + 1; j < nums.size() - 1; j++)
+      if (nums[i] > 0) break;
+      while (i < nums.size() && i > 0 && nums[i] == nums[i - 1])
+        i++;
+
+      for (int j = i + 1; j < nums.size(); j++)
       {
-        for (int z = j + 1; z < nums.size(); z++)
+        if (nums[i] + nums[j] > 0) break;
+        while (j < nums.size() && j > i + 1 && nums[j] == nums[j - 1])
+          j++;
+        if (j >= nums.size()) break;
+        int a = j + 1;
+        int b = nums.size() - 1;
+        int m = 0;
+        int value = 0 - (nums[i] + nums[j]);
+        while (a <= b)
         {
-          if (nums[i] + nums[j] + nums[z] == 0)
+          // m = (a  + b + 1) / 2;
+          m = a + (b - a) / 2;
+          if (nums[m] < value)
           {
-            if (ret.empty() == true)
-              ret.push_back({nums[i], nums[j], nums[z]});
-            else
-              for (int x = 0; x < ret.size(); x++)
-              {
-                for (int x2 = 0; x2 < 3; x2++)
-                {
-                  if (nums[i] != ret[x][x2] || nums[j] != ret[x][x2] ||
-                      nums[z] != ret[x][x2])
-                  {
-                    ret.push_back({nums[i], nums[j], nums[z]});
-                    break;
-                  }
-                }
-              }
+            a = m + 1;
+          }
+          else if (nums[m] > value)
+          {
+            b = m - 1;
+          }
+          else
+          {
+            vector<int> r;
+            r.push_back(nums[i]);
+            r.push_back(nums[j]);
+            r.push_back(nums[m]);
+            ret.push_back(r);
+            break;
           }
         }
       }
@@ -128,7 +149,7 @@ class Solution
   /* for longestCommonPrefix
      brute force
      passed
-   */
+  */
   string longestCommonPrefix1(vector<string> &strs)
   {
     if (strs.empty() == true)
@@ -240,8 +261,32 @@ class Solution
     }
     return max_area;
   }
+ public:
+  int threeSumClosest1(vector<int>& nums, int target) {
+    return 1;
+  }
 
+  /**
+     Write a method that finds the maximum of two numbers. You should not use if-else or any other comparison operator.
 
+     Example:
+
+     Input:  a = 1, b = 2
+     Output:  2
+
+     来源：力扣（LeetCode）
+     链接：https://leetcode-cn.com/problems/maximum-lcci
+     著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+  */
+  int maximum1(int a, int b)
+  {
+    int64_t a1 = a;
+    int64_t b1 = b;
+    int64_t c = a1 - b1;
+    int ret = 0;
+    (c >> 63) ? ret = b : ret =  a;
+    return ret;
+  }
 };
 
 #endif // _LEETCODE_SOLUTION_
